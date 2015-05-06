@@ -26,6 +26,8 @@
     switch (operation) {
         case UINavigationControllerOperationPush:
             if ([toVC.transitioningDelegate respondsToSelector:@selector(animationControllerForPresentedController:presentingController:sourceController:)]) {
+                
+                NSLog(@"%@",NSStringFromClass([toVC.transitioningDelegate class]));
                 ADTransitioningDelegate * delegate = (ADTransitioningDelegate *)toVC.transitioningDelegate;
                 delegate.transition.type = ADTransitionTypePush;
                 return delegate;
